@@ -7,6 +7,9 @@ public class Player : Movement
 {
     public LayerMask landMask;
 
+    private bool isCool = false;
+    public float coolDuriation = 4.6f;
+
     private void Update()
     {
         if(Input.GetMouseButtonDown(1))
@@ -23,12 +26,14 @@ public class Player : Movement
         }
         else if(Input.GetKeyDown(KeyCode.Space))
         {
-            OnSpace();
+            if(!isCool)
+            {
+                OnSpace();
+            }
         }
     }
     public void OnMove(Vector3 pos)
     {
-        StopAllCoroutines();
         MovePos(pos);
     }
 
@@ -39,7 +44,18 @@ public class Player : Movement
     
     public void OnSpace()
     {
-        StopAllCoroutines();
         SpacePos();
+        StartCoroutine(Cooling());
+    }
+
+    IEnumerator Cooling()
+    {
+        isCool = true;
+        Debug.Log("W");
+        
+        yield return new WaitForSeconds(coolDuriation);
+
+        isCool = false;
+        Debug.Log("Z");
     }
 }

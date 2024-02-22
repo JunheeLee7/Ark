@@ -22,6 +22,7 @@ public class Movement : Characters
 
     public void SpacePos()
     {
+        StopAllCoroutines();
         StartCoroutine(Spaceing());
     }
 
@@ -85,10 +86,16 @@ public class Movement : Characters
 
     IEnumerator Spaceing()
     {
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 mop = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, Camera.main.transform.position.y));
+        transform.LookAt(mop);
+
         myAnim.SetBool("isRun", false);
-        myAnim.SetBool("isSpace",true);
+        myAnim.SetBool("isSpace", true);
 
         yield return new WaitForSeconds(0.4f);
+
         myAnim.SetBool("isSpace", false);
+        transform.rotation = Quaternion.Euler(0f, transform.eulerAngles.y, transform.eulerAngles.z);
     }
 }
