@@ -10,6 +10,8 @@ public class Player : Movement
     private bool isCool = false;
     public float coolDuriation = 4.6f;
 
+    private float attackCount = 0.5f;
+
     private void Update()
     {
         if(Input.GetMouseButtonDown(1))
@@ -31,31 +33,44 @@ public class Player : Movement
                 OnSpace();
             }
         }
+        else if(Input.GetMouseButtonDown(0))
+        {
+            if(attackCount >= 0.0f && attackCount <= 1.0f)
+            {
+                attackCount = 1.5f;
+            }
+            else if(attackCount >= 1.1f && attackCount <= 2.0f)
+            {
+                attackCount = 2.5f;
+            }
+            else if(attackCount >= 2.1f && attackCount < 3.0f)
+            {
+                attackCount = 0.5f;
+            }
+            OnAttack(attackCount);
+        }
     }
+    
     public void OnMove(Vector3 pos)
     {
         MovePos(pos);
     }
 
-    public void OnAttack()
-    {
-
-    }
-    
     public void OnSpace()
     {
         SpacePos();
-        StartCoroutine(Cooling());
+        StartCoroutine(Cooling(coolDuriation));
     }
 
-    IEnumerator Cooling()
+    IEnumerator Cooling(float t)
     {
         isCool = true;
         Debug.Log("W");
         
-        yield return new WaitForSeconds(coolDuriation);
+        yield return new WaitForSeconds(t);
 
         isCool = false;
         Debug.Log("Z");
     }
+    
 }

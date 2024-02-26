@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48bb68bbef39d594083728061f561d38, type: 3}
   m_Name: SlashA
   m_EditorClassIdentifier: 
-  damage: 0
-  cooltime: 0
-  animName: 
-  icon: {fileID: 0}
+  damage: 5
+  cooltime: 3
+  animName: Attack_Slash
+  icon: {fileID: 21300000, guid: 875ac936834e0aa45b8a5906e7a5d3a1, type: 3}

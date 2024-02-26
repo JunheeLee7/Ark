@@ -98,4 +98,13 @@ public class Movement : Characters
         myAnim.SetBool("isSpace", false);
         transform.rotation = Quaternion.Euler(0f, transform.eulerAngles.y, transform.eulerAngles.z);
     }
+
+    public void OnAttack(float t)
+    {
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 mop = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, Camera.main.transform.position.y));
+        transform.LookAt(mop);
+
+        myAnim.SetFloat("AttackFloat", t);
+    }
 }
