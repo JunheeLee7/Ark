@@ -5,8 +5,17 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Skills : ScriptableObject
 {
-    public float damage;
+    public float baseDamage;
+
+    public float calculateDamage(float t)
+    {
+        return baseDamage + t;
+    }
+
     public float cooltime;
+
+    public float buffTime;
+    public float buffSt;
 
     public string animName;
 

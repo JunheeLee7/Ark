@@ -5,12 +5,20 @@ using UnityEngine;
 [System.Serializable]
 public struct CharacterState
 {
-    public float MaxHP;
+    public float maxHP;
+    public float currentHP;
     public float MaxMP;
+    public float currentMP;
+    public float str;
+    public float def;
+    public float cp;
+    public float cd;
 
 }
+
 public class Characters : MonoBehaviour
 {
+    [SerializeField] protected CharacterState state;
     Animator _anim = null;
 
     protected Animator myAnim
