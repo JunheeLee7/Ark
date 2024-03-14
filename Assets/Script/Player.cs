@@ -49,6 +49,22 @@ public class Player : Movement
             }
             OnAttack(attackCount);
         }
+        else if(Input.GetKeyDown(KeyCode.Q))
+        {
+
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+
+        }
     }
     
     public void OnMove(Vector3 pos)

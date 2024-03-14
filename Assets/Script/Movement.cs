@@ -5,6 +5,14 @@ using UnityEngine.Events;
 
 public class Movement : Characters
 {
+    public enum skill
+    {
+        Q,
+        W,
+        E,
+        R
+    }
+
     [SerializeField] float moveSpeed = 1.0f;
     [SerializeField] float rotSpeed = 360.0f;
 
@@ -106,5 +114,21 @@ public class Movement : Characters
         transform.LookAt(mop);
 
         myAnim.SetFloat("AttackFloat", t);
+    }
+
+    private void SkillActivate(skill s)
+    {
+        StopAllCoroutines();
+        switch(s)
+        {
+            case skill.Q:
+                break;
+            case skill.W:
+                break;
+            case skill.E:
+                break;
+            case skill.R:
+                break;
+        }
     }
 }
