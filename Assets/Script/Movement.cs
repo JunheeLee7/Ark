@@ -122,13 +122,42 @@ public class Movement : Characters
         switch(s)
         {
             case skill.Q:
+                StartCoroutine(skillStarting());
                 break;
             case skill.W:
+                StartCoroutine(skillStarting());
                 break;
             case skill.E:
+                StartCoroutine(skillStarting());
                 break;
             case skill.R:
+                StartCoroutine(skillStarting());
                 break;
         }
+    }
+
+    IEnumerator skillStarting()
+    {
+        yield return null;
+    }
+
+    private void Slashs()
+    {
+
+    }
+
+    private void TurningSlash()
+    {
+
+    }
+
+    private void Spin()
+    {
+
+    }
+    
+    private void TwinSlash()
+    {
+
     }
 }
